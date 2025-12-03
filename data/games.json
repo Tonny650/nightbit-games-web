@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Legacy of the First Sun",
+    "slug": "legacy-of-the-first-sun",
+    "status": "In Development",
+    "description": "A sci-fi survival adventure set on the micro-planet Erebus-9, where a collapsing containment dome threatens the last remnants of life. Explore unstable biomes, survive mutated ecosystems, and unravel the mystery behind the forbidden First Sun Protocol—an experiment that doomed the colony.",
+    "image": "/legacy-of-the-first-sun.png",
+    "tags": ["3D", "Survival", "Sci-Fi", "Godot C#"],
+    "features": [
+      "Open-world exploration with biome streaming",
+      "Progressive dome-decay survival system",
+      "Mutated wildlife with adaptive AI behaviors",
+      "Energy towers that regulate planetary stability",
+      "Lore-rich narrative tied to the First Sun Protocol"
+    ]
+  }
+]

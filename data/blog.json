@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Bienvenido a NightBit Games",
+    "slug": "bienvenido-a-nightbit-games",
+    "date": "January 1, 2025",
+    "author": "Antonio — NightBit Games",
+    "excerpt": "El inicio oficial del estudio, nuestra visión y el anuncio del proyecto: Legacy of the First Sun.",
+    "tags": ["Studio", "Inicio", "NightBit"],
+    "content": [
+      "Bienvenido a la primera versión oficial del sitio de NightBit Games. Este es el espacio donde compartiré avances, devlogs y toda la evolución del estudio a lo largo del tiempo.",
+      "Mi visión es crear mundos inmersivos, oscuros y atmosféricos.",
+      "Legacy of the First Sun es el proyecto principal en el que estoy trabajando actualmente. Un survival sci-fi ambientado en Erebus-9, un micro-planeta sellado bajo un domo. El jugador deberá sobrevivir a ecosistemas mutados y descubrir la verdad detrás del protocolo que cambió todo.",
+      "Este blog será el registro de desarrollo: diseño de sistemas, código en Godot C#, arquitectura interna, worldbuilding y más. Aquí documentaré cada avance importante.",
+      "Gracias por acompañarme en este inicio. El viaje apenas comienza."
+    ]
+  }
+]
+
