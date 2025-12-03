@@ -1,0 +1,26 @@
+### JetBrains (WebStorm) ###
+# Excluye configuraciones del editor específicas de tu usuario
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Sistema Operativo ###
+# Archivos basura de Mac y Windows
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+### Archivos Temporales y Logs ###
+*.log
+*.tmp
+
+### Directorios de Build (Opcional) ###
+# dist/
+# build/
