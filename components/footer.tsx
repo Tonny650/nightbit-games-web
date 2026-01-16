@@ -1,67 +1,40 @@
 import Link from "next/link"
-import { Github, Twitter, Youtube, Mail } from "lucide-react"
+import { Github, Twitter, Youtube } from "lucide-react"
 
 export function Footer() {
     return (
-        <footer className="border-t border-border bg-card mt-auto">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <footer className="border-t border-white/10 bg-black text-gray-400 py-12 relative z-10">
+            <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+
+                {/* Left - BRANDING */}
+                <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-4">
+                    {/* Isotipo en el footer */}
+                    <img
+                        src="/logo.png"
+                        alt="NightBit Logo"
+                        className="h-10 w-auto opacity-80 grayscale hover:grayscale-0 transition-all"
+                    />
+
                     <div>
-                        <h3 className="font-bold text-lg mb-4 text-foreground font-kanit">NightBit Games</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                            Independent game developer crafting immersive 3D experiences with Godot C#.
+                        <h3 className="font-bold text-lg text-white font-kanit mb-1">NightBit Games</h3>
+                        <p className="text-xs text-gray-500">
+                            &copy; {new Date().getFullYear()} NightBit Games. <br className="hidden md:block"/>Indie Development.
                         </p>
-                    </div>
-
-                    <div>
-                        <h3 className="font-bold text-lg mb-4 text-foreground">Quick Links</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li>
-                                <Link href="/games" className="text-muted-foreground hover:text-primary transition-colors">
-                                    Games Portfolio
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">
-                                    Development Blog
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                                    About
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="font-bold text-lg mb-4 text-foreground">Connect</h3>
-                        <div className="flex gap-4">
-                            <a href="https://github.com/NightBitGames" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Github className="h-5 w-5" />
-                                <span className="sr-only">GitHub</span>
-                            </a>
-                            <a href="https://x.com/NightBitGames" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Twitter className="h-5 w-5" />
-                                <span className="sr-only">Twitter</span>
-                            </a>
-                            <a href="https://www.youtube.com/@NightBitGames" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Youtube className="h-5 w-5" />
-                                <span className="sr-only">YouTube</span>
-                            </a>
-                            <a
-                                href="mailto:afigueroav35@gmail.com"
-                                className="text-muted-foreground hover:text-primary transition-colors"
-                            >
-                                <Mail className="h-5 w-5" />
-                                <span className="sr-only">Email</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} NightBit Games. All rights reserved.</p>
+                {/* Center - Links */}
+                <div className="flex gap-6 text-sm font-medium">
+                    <Link href="/games" className="hover:text-primary transition-colors">Games</Link>
+                    <Link href="/about" className="hover:text-primary transition-colors">Studio</Link>
+                    <Link href="mailto:contact@nightbitgames.com" className="hover:text-primary transition-colors">Contact</Link>
+                </div>
+
+                {/* Right - Icons */}
+                <div className="flex gap-4">
+                    <a href="https://github.com/NightBitGames" className="hover:text-white transition-colors"><Github className="h-5 w-5" /></a>
+                    <a href="https://x.com/NightBitGames" className="hover:text-white transition-colors"><Twitter className="h-5 w-5" /></a>
+                    <a href="https://www.youtube.com/@NightBitGames" className="hover:text-white transition-colors"><Youtube className="h-5 w-5" /></a>
                 </div>
             </div>
         </footer>

@@ -1,91 +1,82 @@
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 import games from "@/data/games.json"
 
 export default function GamesPage() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-black text-white">
             <Navigation />
 
-            <main className="flex-1">
-                <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div className="max-w-3xl mb-12">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Games Portfolio</h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                            A collection of my game development projects, all built with Godot Engine and C#. From action-packed
-                            adventures to mind-bending puzzles, each project represents a unique exploration of game mechanics and
-                            storytelling.
+            <main className="flex-1 pt-24 pb-16">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Header Minimalista */}
+                    <div className="mb-16 text-center">
+                        <h1 className="text-4xl md:text-6xl font-bold font-kanit tracking-tight mb-4">
+                            OUR GAMES
+                        </h1>
+                        <p className="text-gray-400 max-w-2xl mx-auto">
+                            Immersive worlds. Dark atmospheres. Uncompromising survival.
                         </p>
                     </div>
 
-                    <div className="space-y-8">
+                    {/* Lista de Juegos - Estilo "Poster Cinemático" */}
+                    <div className="flex flex-col gap-12 max-w-5xl mx-auto">
                         {games.map((game, index) => (
-                            <Link
+                            <div
                                 key={game.slug ?? index}
-                                href={`/games/${game.slug}`}
-                                className="block group"
+                                className="group relative overflow-hidden rounded-xl border border-white/10 bg-zinc-900/50 hover:border-primary/50 transition-all duration-500"
                             >
-                                <Card className="bg-card border-border overflow-hidden cursor-pointer group-hover:border-primary transition-colors">
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                        <div className="aspect-video lg:aspect-auto relative overflow-hidden bg-muted">
-                                            <img
-                                                src={game.image}
-                                                alt={game.title}
-                                                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                                            />
+                                <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
+
+                                    {/* Imagen (Ocupa 3/5 del espacio en escritorio) */}
+                                    <div className="lg:col-span-3 h-64 lg:h-auto relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-black/0 via-black/0 to-zinc-900 lg:to-zinc-900/50 z-10" />
+                                        <img
+                                            src={game.image}
+                                            alt={game.title}
+                                            className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                    </div>
+
+                                    {/* Info (Ocupa 2/5 del espacio) */}
+                                    <div className="lg:col-span-2 p-8 flex flex-col justify-center relative z-20">
+                                        <h2 className="text-3xl font-bold mb-3 font-kanit text-white">
+                                            {game.title}
+                                        </h2>
+
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {game.tags.slice(0, 3).map(tag => (
+                                                <span key={tag} className="text-xs font-mono text-primary border border-primary/30 px-2 py-1 rounded">
+                                {tag.toUpperCase()}
+                            </span>
+                                            ))}
                                         </div>
 
-                                        <CardContent className="pt-6 lg:py-6">
-                                            <div className="flex items-start justify-between mb-3">
-                                                <h2 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                                    {game.title}
-                                                </h2>
-                                                <Badge variant={game.status === "In Development" ? "default" : "secondary"}>
-                                                    {game.status}
-                                                </Badge>
-                                            </div>
+                                        <p className="text-gray-400 mb-8 leading-relaxed line-clamp-3">
+                                            {game.description}
+                                        </p>
 
-                                            <p className="text-muted-foreground mb-4 leading-relaxed">
-                                                {game.description}
-                                            </p>
-
-                                            <div className="mb-4">
-                                                <h3 className="text-sm font-semibold mb-2 text-foreground">Key Features:</h3>
-                                                <ul className="grid grid-cols-2 gap-2">
-                                                    {game.features.map((feature, i) => (
-                                                        <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                                                            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                                                            {feature}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-
-                                            <div className="flex flex-wrap gap-2">
-                                                {game.tags.map((tag, i) => (
-                                                    <span
-                                                        key={i}
-                                                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"
-                                                    >
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </CardContent>
+                                        <Button asChild variant="outline" className="w-fit border-white/20 text-white hover:bg-white hover:text-black">
+                                            <Link href={`/games/${game.slug}`}>
+                                                Explore Game <ArrowRight className="ml-2 h-4 w-4" />
+                                            </Link>
+                                        </Button>
                                     </div>
-                                </Card>
-                            </Link>
+
+                                </div>
+                            </div>
                         ))}
                     </div>
-                </section>
+
+                </div>
             </main>
 
             <Footer />
         </div>
     )
 }
-
 
